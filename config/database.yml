@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 10
+
+development:
+  <<: *default
+  url: <%= ENV['READER_CLIENT_DEVELOPMENT_DATABASE_URL'] %>
+
+test:
+  <<: *default
+  url: <%= ENV['READER_CLIENT_TEST_DATABASE_URL'] %>
+
+production:
+  <<: *default
+  url: <%= ENV['READER_CLIENT_PRODUCTION_DATABASE_URL'] %>

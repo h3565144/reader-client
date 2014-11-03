@@ -1,0 +1,17 @@
+%h3.title
+  = item.title
+.info
+  .link.pull-right
+    = link_to 'source', item.url, target: '_blank'
+  %span.pub-date
+    = item.published
+  - if item.author
+    author:
+    %span.author
+      = item.author
+  = link_to 'Keep unread', item_path(item, item: {unread: '1'}), remote: true, method: :put, id: 'keep-unread'
+.description
+  != item.content || item.summary
+:coffee
+  $('#keep-unread').click ->
+    $('.items .item.active').addClass 'unread'

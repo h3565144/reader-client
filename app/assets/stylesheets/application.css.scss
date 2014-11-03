@@ -1,0 +1,74 @@
+//= require_tree .
+//= require_self
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+body {
+  padding-top: 70px;
+  background: image-url('sneaker_mesh_fabric.png') fixed;
+}
+
+.navbar-fixed-top {
+  .navbar-form {
+    padding-left: 0;
+
+    input {
+      width: 400px;
+    }
+  }
+}
+
+.channels {
+  .show-channel {
+    color: black;
+  }
+  .channel.active .show-channel {
+    color: #428bca;
+  }
+  .channel {
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.items {
+  .item {
+    padding: 3px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 13px;
+
+    .show-item {
+      white-space: nowrap;
+      color: gray;
+    }
+    &.unread .show-item {
+      color: black;
+    }
+    &.active .show-item {
+      color: #428bca;
+    }
+  }
+}
+
+.item-area {
+  height: 100vh;
+  margin-top: -70px;
+  padding-top: 70px;
+  
+  #item {
+    height: 100%;
+    overflow-y: auto;
+
+    .description {
+      margin-top: 10px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
