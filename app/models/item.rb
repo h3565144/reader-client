@@ -8,7 +8,7 @@ class Item < ActiveRecord::Base
   def self.synchronize_with_server
     server_url = "#{server_api_url}/items"
     id = order(id: :desc).first.try :id
-    response = RestClient.get server_url, {params: {last_id: id}}
+    response = RestClient.get server_url, {params: {after_id: id}}
     ActiveRecord::Base.transaction do
       JSON.parse(response.body)['items'].each do |data|
         create data
